@@ -4,42 +4,40 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Main {
+public class NumberSort {
 
-    public static void main(String[] args) throws FileNotFoundException {
 
+    public void sortNumbersFromFile() throws FileNotFoundException {
 
         String line = "";
 
         File file = new File("/Users/manolescusebastian/IdeaProjects/Ex_codegile/src/Numere.txt");
         Scanner scanner = new Scanner(file);
 
-        try{
-            while (scanner.hasNextLine()){
+        try {
+            while (scanner.hasNextLine()) {
                 line = scanner.nextLine();
             }
 
             convertValues(line);
 
-        }finally {
+        } finally {
             scanner.close();
         }
-
-
     }
 
 
-    private static void convertValues(String line){
+    private static void convertValues(String line) {
 
         int doubleCount = 0;
         int integerCount = 0;
 
         String[] splitNumbersByComma = line.split(",");
 
-        for(String number : splitNumbersByComma){
-            if(number.contains(".")){
+        for (String number : splitNumbersByComma) {
+            if (number.contains(".")) {
                 doubleCount++;
-            }else{
+            } else {
                 integerCount++;
             }
         }
